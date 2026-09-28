@@ -1,0 +1,5 @@
+#!/bin/sh
+for node in /opt/homebrew/bin/node /usr/local/bin/node; do
+  if [ -x "$node" ]; then exec "$node" "$(dirname "$0")/plugin.mjs" "$@"; fi
+done
+exec /usr/bin/env node "$(dirname "$0")/plugin.mjs" "$@"

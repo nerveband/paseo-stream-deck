@@ -1,0 +1,5 @@
+{
+  "id": "paseo-deck-settings",
+  "description": "Shared appearance settings for Paseo Deck on this Mac",
+  "requirements": { "paseo": ">=0.9.2" }
+}

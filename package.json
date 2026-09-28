@@ -1,0 +1,19 @@
+{
+  "name": "paseo-stream-deck",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "mockup": "node scripts/mockup.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@elgato/streamdeck": "^2.1.2",
+    "@getpaseo/client": "0.9.2"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "esbuild": "0.25.12"
+  }
+}

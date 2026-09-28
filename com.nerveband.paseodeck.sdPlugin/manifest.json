@@ -1,0 +1,23 @@
+{
+  "Name": "Paseo Deck",
+  "Description": "Live Paseo agent status on Stream Deck",
+  "Author": "wavedepth",
+  "Version": "0.1.0",
+  "UUID": "com.nerveband.paseodeck",
+  "SDKVersion": 2,
+  "CodePathMac": "bin/paseo-deck",
+  "CodePath": "bin/paseo-deck",
+  "Icon": "icons/plugin",
+  "Category": "Paseo",
+  "OS": [{ "Platform": "mac", "MinimumVersion": "12" }],
+  "Software": { "MinimumVersion": "6.0" },
+  "Actions": [{
+    "Name": "Agent monitor",
+    "UUID": "com.nerveband.paseodeck.agent",
+    "Icon": "icons/plugin",
+    "States": [{ "Image": "icons/plugin" }],
+    "Controllers": ["Keypad"],
+    "PropertyInspectorPath": "inspector.html",
+    "Tooltip": "Show a live Paseo agent in this key position"
+  }]
+}

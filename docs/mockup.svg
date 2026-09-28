@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="900" viewBox="0 0 1120 900">
+  <defs><radialGradient id="page"><stop stop-color="#263849"/><stop offset="1" stop-color="#0a1018"/></radialGradient><linearGradient id="case" x2="1" y2="1"><stop stop-color="#3a4049"/><stop offset=".5" stop-color="#1a1f26"/><stop offset="1" stop-color="#282e37"/></linearGradient></defs>
+  <rect width="1120" height="900" fill="url(#page)"/>
+  <text x="100" y="108" fill="#e9f0f8" font-family="Arial,sans-serif" font-size="42" font-weight="bold">Paseo Deck</text>
+  <text x="100" y="140" fill="#9eb0c4" font-family="Arial,sans-serif" font-size="18">Live agent status across 15 keys. Illustrative data.</text>
+  <rect x="850" y="90" width="170" height="36" rx="18" fill="none" stroke="#415367"/>
+  <text x="875" y="113" fill="#96acc1" font-family="Arial,sans-serif" font-size="14" letter-spacing="2">15-KEY PREVIEW</text>
+  <rect x="197" y="171" width="730" height="433" rx="38" fill="#000000" opacity=".3"/>
+  <rect x="195" y="164" width="730" height="433" rx="38" fill="url(#case)" stroke="#55606c" stroke-width="5"/>
+  <rect x="245" y="220" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(250 225) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#351319"/><stop offset="1" stop-color="#1b1118"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ff6570" stroke-width="2.3"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">›</text>
+    <text x="65" y="18" fill="#fff" text-anchor="end" font-family="Arial, sans-serif" font-size="9" font-weight="bold">8:34</text>
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="9.96" font-weight="600" font-kerning="normal">Build storefront</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Running tests</text>
+    </g>
+  </svg></g><rect x="369" y="220" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(374 225) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#4b3d0c"/><stop offset="1" stop-color="#272109"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ffe45c" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">?</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="32" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">Review</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">migration</text>
+    <text x="5" y="59" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Question for you</text>
+    </g>
+  </svg></g><rect x="493" y="220" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(498 225) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#6034a0"/><stop offset="1" stop-color="#281746"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ba8dff" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">!</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="10.38" font-weight="600" font-kerning="normal">Deploy staging</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Approval needed</text>
+    </g>
+  </svg></g><rect x="617" y="220" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(622 225) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#bf6427"/><stop offset="1" stop-color="#70311d"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ffab67" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">×</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">Fix checkout</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Run failed</text>
+    </g>
+  </svg></g><rect x="741" y="220" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(746 225) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#317f4c"/><stop offset="1" stop-color="#12472f"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#72df91" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">✓</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">Publish docs</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Finished, review</text>
+    </g>
+  </svg></g><rect x="245" y="344" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(250 349) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#351319"/><stop offset="1" stop-color="#1b1118"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ff6570" stroke-width="2.3"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">›</text>
+    <text x="65" y="18" fill="#fff" text-anchor="end" font-family="Arial, sans-serif" font-size="9" font-weight="bold">3:12</text>
+    <g clip-path="url(#copy)"><text x="5" y="32" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">Update</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">homepage</text>
+    <text x="5" y="59" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Editing layout</text>
+    </g>
+  </svg></g><rect x="369" y="344" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(374 349) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#253444"/><stop offset="1" stop-color="#141e2a"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#50657b" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">·</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="10.65" font-weight="600" font-kerning="normal">Audit analytics</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Ready</text>
+    </g>
+  </svg></g><rect x="493" y="344" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(498 349) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#351319"/><stop offset="1" stop-color="#1b1118"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ff6570" stroke-width="2.3"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">›</text>
+    <text x="65" y="18" fill="#fff" text-anchor="end" font-family="Arial, sans-serif" font-size="9" font-weight="bold">15:09</text>
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="10.65" font-weight="600" font-kerning="normal">Write proposal</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Drafting summary</text>
+    </g>
+  </svg></g><rect x="617" y="344" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(622 349) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#4b3d0c"/><stop offset="1" stop-color="#272109"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ffe45c" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">?</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="11.38" font-weight="600" font-kerning="normal">Check backup</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Question for you</text>
+    </g>
+  </svg></g><rect x="741" y="344" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(746 349) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#317f4c"/><stop offset="1" stop-color="#12472f"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#72df91" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">✓</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="10.51" font-weight="600" font-kerning="normal">Import content</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Finished, review</text>
+    </g>
+  </svg></g><rect x="245" y="468" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(250 473) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#bf6427"/><stop offset="1" stop-color="#70311d"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ffab67" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">×</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="11.56" font-weight="600" font-kerning="normal">Release build</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Run failed</text>
+    </g>
+  </svg></g><rect x="369" y="468" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(374 473) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#351319"/><stop offset="1" stop-color="#1b1118"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ff6570" stroke-width="2.3"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">›</text>
+    <text x="65" y="18" fill="#fff" text-anchor="end" font-family="Arial, sans-serif" font-size="9" font-weight="bold">1:42</text>
+    <g clip-path="url(#copy)"><text x="5" y="32" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">Optimize</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">images</text>
+    <text x="5" y="59" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Processing images</text>
+    </g>
+  </svg></g><rect x="493" y="468" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(498 473) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#6034a0"/><stop offset="1" stop-color="#281746"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#ba8dff" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">!</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="11.95" font-weight="600" font-kerning="normal">Client review</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Approval needed</text>
+    </g>
+  </svg></g><rect x="617" y="468" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(622 473) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#253444"/><stop offset="1" stop-color="#141e2a"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#50657b" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">·</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">Sync assets</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Ready</text>
+    </g>
+  </svg></g><rect x="741" y="468" width="118" height="118" rx="13" fill="#0a0e13" stroke="#525b66" stroke-width="3"/>
+  <g transform="translate(746 473) scale(1.5)"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+    <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#30323a"/><stop offset="1" stop-color="#252830"/></linearGradient><clipPath id="copy"><rect x="5" y="21" width="61" height="47"/></clipPath></defs>
+    <rect x="1.4" y="1.4" width="69.2" height="69.2" rx="5" fill="url(#bg)" stroke="#727784" stroke-width="1.5"/>
+    <text x="6" y="22" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">⌁</text>
+
+    <g clip-path="url(#copy)"><text x="5" y="39" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal">Paseo offline</text>
+    <text x="5" y="43" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="12" font-weight="600" font-kerning="normal"></text>
+    <text x="5" y="57" fill="#fff" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-size="8.4" font-weight="600" font-kerning="normal">Disconnected</text>
+    </g>
+  </svg></g>
+  <circle cx="290" cy="694" r="5" fill="#ff6570"/><text x="302" y="699" fill="#b6c4d2" font-family="Arial,sans-serif" font-size="14">Running</text><circle cx="422" cy="694" r="5" fill="#ffe45c"/><text x="434" y="699" fill="#b6c4d2" font-family="Arial,sans-serif" font-size="14">Question</text><circle cx="554" cy="694" r="5" fill="#ba8dff"/><text x="566" y="699" fill="#b6c4d2" font-family="Arial,sans-serif" font-size="14">Approval</text><circle cx="686" cy="694" r="5" fill="#72df91"/><text x="698" y="699" fill="#b6c4d2" font-family="Arial,sans-serif" font-size="14">Finished</text><circle cx="818" cy="694" r="5" fill="#ffab67"/><text x="830" y="699" fill="#b6c4d2" font-family="Arial,sans-serif" font-size="14">Failed</text>
+</svg>
