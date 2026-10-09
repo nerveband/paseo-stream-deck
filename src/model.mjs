@@ -13,7 +13,12 @@ export function visibleAgents(entries) {
   return entries.map(x => x.agent).filter(a => a && !a.archivedAt && a.status !== 'closed').sort((a, b) => {
     const p = priority[statusOf(a)] - priority[statusOf(b)];
     return p || Date.parse(b.updatedAt || 0) - Date.parse(a.updatedAt || 0);
-  }).slice(0, 15);
+  });
+}
+
+export const AGENTS_PER_PAGE = 12;
+export function agentIndexForSlot(slot, page) {
+  return slot % 5 === 4 ? -1 : page * AGENTS_PER_PAGE + Math.floor(slot / 5) * 4 + slot % 5;
 }
 
 export function activityOf(item) {

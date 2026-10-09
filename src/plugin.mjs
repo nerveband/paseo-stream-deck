@@ -4,8 +4,8 @@ import { spawn } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync, renameSync, statSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
-import { imageFor } from './render.mjs';
-import { activityOf, clean, statusOf, visibleAgents } from './model.mjs';
+import { svgFor, crossfadeSvg, pageTransitionSvg, navigationSvg } from './render.mjs';
+import { activityOf, clean, statusOf, visibleAgents, agentIndexForSlot, AGENTS_PER_PAGE } from './model.mjs';
 
 const ACTION = 'com.nerveband.paseodeck.agent';
 const CONFIG = join(homedir(), 'Library/Application Support/paseo-deck/config.json');
@@ -24,6 +24,7 @@ const timelines = new Map();
 const keys = new Map();
 const prior = new Map();
 let agents = [];
+let agentPage = 0;
 const connected = new Set();
 let frame = 0;
 let settings = {};
@@ -79,27 +80,79 @@ function indexOf(action) {
   return at ? at.row * 5 + at.column : -1;
 }
 
-function show() {
+function paint(id, key, image) {
+  if (prior.get(id) === image) return;
+  prior.set(id, image);
+  key.pendingImage = image;
+  if (key.painting) return;
+  key.painting = true;
+  void (async () => {
+    while (key.pendingImage && keys.get(id) === key) {
+      const next = key.pendingImage;
+      key.pendingImage = null;
+      try { await key.action.setImage(next); }
+      catch (error) {
+        prior.delete(id);
+        streamDeck.logger.warn(`Image update failed: ${String(error)}`);
+      }
+    }
+    key.painting = false;
+  })();
+}
+
+function show(animationOnly = false) {
+  const now = Date.now();
+  frame = Math.floor(now / 1000);
+  const pageBucket = Math.floor(now / 10000);
+  const pageCount = Math.max(1, Math.ceil(agents.length / AGENTS_PER_PAGE));
+  agentPage = Math.min(agentPage, pageCount - 1);
   for (const [id, key] of keys) {
     const slot = indexOf(key.action);
     if (slot < 0 || slot >= 15) continue;
-    const agent = agents[slot];
+    if (slot % 5 === 4) {
+      if (animationOnly) continue;
+      const kind = slot === 4 ? 'up' : slot === 9 ? 'page' : 'down';
+      const svg = navigationSvg(kind, agentPage, pageCount, key.pressedUntil > now);
+      paint(id, key, `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`);
+      continue;
+    }
+    const agent = agents[agentIndexForSlot(slot, agentPage)];
     const state = agent && activities.get(agent.deckId);
-    const image = imageFor(agent, {
-      offline: agent ? !connected.has(agent.sourceLabel) : connected.size === 0,
+    const offline = agent ? !connected.has(agent.sourceLabel) : connected.size === 0;
+    const status = agent ? (offline ? 'offline' : statusOf(agent)) : (offline ? 'offline' : 'empty');
+    if (animationOnly && status !== 'active' && !key.transition && !key.pageTransition) continue;
+    const signature = `${agent?.deckId || 'none'}:${status}`;
+    if (key.signature !== signature) {
+      if (key.signature !== undefined && key.lastSvg) key.transition = { from: key.lastSvg, startedAt: now };
+      key.pageTransition = null;
+      key.signature = signature;
+    }
+    const svg = svgFor(agent, {
+      offline,
       activity: state?.activity,
       startedAt: state?.startedAt,
       endedAt: state?.endedAt,
-      pressed: key.pressedUntil > Date.now(),
+      pressed: key.pressedUntil > now,
       frame,
+      spinnerPhase: Math.floor(now / 120) % 8,
       settings,
     });
-    if (prior.get(id) === image) continue;
-    prior.set(id, image);
-    void key.action.setImage(image).catch(error => {
-      prior.delete(id);
-      streamDeck.logger.warn(`Image update failed: ${String(error)}`);
-    });
+    if (key.pageBucket !== undefined && key.pageBucket !== pageBucket && !key.transition && key.lastSvg && key.lastSvg !== svg) {
+      key.pageTransition = { from: key.lastSvg, startedAt: now };
+    }
+    key.pageBucket = pageBucket;
+    let visible = svg;
+    if (key.transition) {
+      const progress = (now - key.transition.startedAt) / 400;
+      if (progress < 1) visible = crossfadeSvg(key.transition.from, svg, progress);
+      else key.transition = null;
+    } else if (key.pageTransition) {
+      const progress = (now - key.pageTransition.startedAt) / 600;
+      if (progress < 1) visible = pageTransitionSvg(key.pageTransition.from, svg, progress);
+      else key.pageTransition = null;
+    }
+    key.lastSvg = svg;
+    paint(id, key, `data:image/svg+xml;base64,${Buffer.from(visible).toString('base64')}`);
   }
 }
 
@@ -137,7 +190,21 @@ function applyEntries() {
       const source = SOURCES.find(x => x.label === agent.sourceLabel);
       return !agent.workspaceId || source?.activeWorkspaces?.has(agent.workspaceId);
     })
-    .map(agent => ({ agent })));
+    .map(agent => {
+      const source = SOURCES.find(x => x.label === agent.sourceLabel);
+      return { agent: { ...agent, deckTitle: source?.workspaceTitles?.get(agent.workspaceId) || agent.title } };
+    }));
+  const workspaceTabs = new Map();
+  for (const agent of next) {
+    const group = `${agent.sourceLabel}:${agent.workspaceId || agent.id}`;
+    const members = workspaceTabs.get(group) || [];
+    members.push(agent);
+    workspaceTabs.set(group, members);
+  }
+  for (const members of workspaceTabs.values()) {
+    members.sort((a, b) => Date.parse(a.createdAt || 0) - Date.parse(b.createdAt || 0) || a.id.localeCompare(b.id));
+    members.forEach((agent, index) => { agent.tabIndex = index + 1; agent.tabCount = members.length; });
+  }
   const visible = new Set(next.map(a => a.deckId));
   for (const agent of next) {
     const state = activities.get(agent.deckId) || {};
@@ -150,11 +217,11 @@ function applyEntries() {
     }
     activities.set(agent.deckId, state);
     const source = SOURCES.find(x => x.label === agent.sourceLabel);
-    if (source?.client) void watchTimeline(source.client, agent);
+    if (source?.client) void watchTimeline(source.client, agent).catch(error => streamDeck.logger.warn(`Timeline subscription failed: ${String(error)}`));
   }
   for (const [id, observer] of timelines) {
     if (!visible.has(id)) {
-      void observer.release?.();
+      void observer.release?.().catch(error => streamDeck.logger.warn(`Timeline cleanup failed: ${String(error)}`));
       timelines.delete(id);
     }
   }
@@ -171,6 +238,7 @@ async function connectPaseo(source) {
       source.client = client;
       const workspaces = await client.workspaces.list();
       source.activeWorkspaces = new Set(workspaces.entries.map(workspace => workspace.id));
+      source.workspaceTitles = new Map(workspaces.entries.map(workspace => [workspace.id, workspace.title || workspace.name || workspace.displayName]));
       const directory = await client.agents.list({ filter: { includeArchived: false }, subscribe: {} });
       connected.add(source.label);
       const put = agent => entries.set(`${source.label}:${agent.id}`, { ...agent, deckId: `${source.label}:${agent.id}`, sourceLabel: source.label });
@@ -218,7 +286,14 @@ streamDeck.actions.onKeyDown(event => {
   key.pressedUntil = Date.now() + 400;
   show();
   setTimeout(show, 450);
-  const agent = agents[indexOf(event.action)];
+  const slot = indexOf(event.action);
+  if (slot % 5 === 4) {
+    const pageCount = Math.max(1, Math.ceil(agents.length / AGENTS_PER_PAGE));
+    agentPage = Math.max(0, Math.min(pageCount - 1, agentPage + (slot === 4 ? -1 : slot === 14 ? 1 : 0)));
+    show();
+    return;
+  }
+  const agent = agents[agentIndexForSlot(slot, agentPage)];
   if (agent) {
     const source = SOURCES.find(x => x.label === agent.sourceLabel);
     const target = source?.serverId
@@ -250,11 +325,29 @@ setInterval(() => {
   }
   show();
 }, 1000);
+let lastSpin = -1;
+let lastPageBucket = Math.floor(Date.now() / 10000);
+setInterval(() => {
+  const now = Date.now();
+  const pageBucket = Math.floor(now / 10000);
+  if (pageBucket !== lastPageBucket) {
+    lastPageBucket = pageBucket;
+    show();
+    return;
+  }
+  const spin = Math.floor(now / 120);
+  const fading = [...keys.values()].some(key => key.transition || key.pageTransition);
+  if (fading || spin !== lastSpin) {
+    lastSpin = spin;
+    if (fading || agents.some(agent => statusOf(agent) === 'active')) show(true);
+  }
+}, 60);
 setInterval(() => {
   for (const source of SOURCES) {
     if (!connected.has(source.label)) continue;
     void source.client.workspaces.list().then(result => {
       source.activeWorkspaces = new Set(result.entries.map(workspace => workspace.id));
+      source.workspaceTitles = new Map(result.entries.map(workspace => [workspace.id, workspace.title || workspace.name || workspace.displayName]));
       applyEntries();
     }).catch(error => streamDeck.logger.warn(`Workspace refresh failed for ${source.label}: ${String(error)}`));
   }

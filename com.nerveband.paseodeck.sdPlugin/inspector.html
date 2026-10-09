@@ -16,7 +16,7 @@
     label { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; padding: 8px 10px; border-radius: 6px; background: #2e343c; }
     input[type=number] { width: 54px; padding: 5px; }
     input[type=color] { width: 48px; height: 28px; padding: 0; border: 0; background: transparent; }
-    input { color: inherit; background: #343b45; border: 1px solid #596371; border-radius: 4px; }
+    input, select { color: inherit; background: #343b45; border: 1px solid #596371; border-radius: 4px; }
     #state { color: #aeb7c2; margin-top: 14px; }
     @media (max-width: 620px) { .colors { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 370px) { .sizes, .colors { grid-template-columns: 1fr; } }
@@ -32,6 +32,14 @@
     <label>Title <input type="number" min="6" max="16" step="0.5" data-size="title" value="12"></label>
     <label>Activity <input type="number" min="6" max="12" step="0.5" data-size="activity" value="8.4"></label>
   </div>
+  <h2>Typography</h2>
+  <div class="grid sizes">
+    <label>Font <select data-type="family"><option value="avenir">Avenir Next Condensed</option><option value="arial">Arial Narrow</option><option value="din">DIN Condensed</option></select></label>
+    <label>Title weight <select data-type="titleWeight"><option value="500">Medium</option><option value="600">Semibold</option><option value="700">Bold</option></select></label>
+    <label>Status weight <select data-type="statusWeight"><option value="500">Medium</option><option value="600">Semibold</option><option value="700">Bold</option></select></label>
+    <label>Title spacing <input type="number" min="0" max="0.8" step="0.05" data-type="titleTracking" value="0"></label>
+    <label>Status spacing <input type="number" min="0" max="1" step="0.05" data-type="statusTracking" value="0.25"></label>
+  </div>
   <h2>Status colors</h2>
   <div class="grid colors">
     <label>Running <input type="color" data-color="active" value="#ff6570"></label>
@@ -42,6 +50,9 @@
     <label>Idle <input type="color" data-color="idle" value="#50657b"></label>
     <label>Offline <input type="color" data-color="offline" value="#727784"></label>
   </div>
+  <h2>Text pages</h2>
+  <p>The slim scrollbar shows which part of a long title is visible.</p>
+  <div class="grid sizes"><label>Scrollbar <select data-pagination><option value="right">Right edge</option><option value="bottom-right">Bottom right</option><option value="bottom-left">Bottom left</option><option value="off">Off</option></select></label></div>
   <div id="state">Connecting to OpenDeck…</div>
   <script>
     let socket, pluginId, settings = {};
@@ -49,16 +60,21 @@
     function render() {
       for (const input of document.querySelectorAll('[data-size]')) input.value = settings.fontSizes?.[input.dataset.size] ?? input.defaultValue;
       for (const input of document.querySelectorAll('[data-color]')) input.value = settings.colors?.[input.dataset.color] ?? input.defaultValue;
+      const typeDefaults = { family: 'avenir', titleWeight: '600', statusWeight: '700', titleTracking: 0, statusTracking: 0.25 };
+      for (const input of document.querySelectorAll('[data-type]')) input.value = settings.typography?.[input.dataset.type] ?? typeDefaults[input.dataset.type];
+      document.querySelector('[data-pagination]').value = settings.paginationPosition || 'right';
     }
     function save() {
       settings.fontSizes = Object.fromEntries([...document.querySelectorAll('[data-size]')].map(input => [input.dataset.size, Number(input.value)]));
       settings.colors = Object.fromEntries([...document.querySelectorAll('[data-color]')].map(input => [input.dataset.color, input.value]));
+      settings.typography = Object.fromEntries([...document.querySelectorAll('[data-type]')].map(input => [input.dataset.type, input.type === 'number' ? Number(input.value) : input.value]));
+      settings.paginationPosition = document.querySelector('[data-pagination]').value;
       if (socket?.readyState === WebSocket.OPEN) {
         socket.send(JSON.stringify({ event: 'setGlobalSettings', context: pluginId, payload: settings }));
         state.textContent = 'Saved for all Paseo keys';
       }
     }
-    document.querySelectorAll('input').forEach(input => input.addEventListener('change', save));
+    document.querySelectorAll('input, select').forEach(input => input.addEventListener('change', save));
     window.connectElgatoStreamDeckSocket = (port, uuid, event) => {
       pluginId = uuid;
       socket = new WebSocket(`ws://127.0.0.1:${port}`);

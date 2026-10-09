@@ -5,6 +5,14 @@ const color = z.string().regex(/^#[0-9a-fA-F]{6}$/);
 const size = (maximum: number) => z.number().min(6).max(maximum);
 
 export const appearanceSchema = z.object({
+  paginationPosition: z.enum(['right', 'bottom-right', 'bottom-left', 'off']).default('right'),
+  typography: z.object({
+    family: z.enum(['avenir', 'arial', 'din']).default('avenir'),
+    titleWeight: z.enum(['500', '600', '700']).default('600'),
+    statusWeight: z.enum(['500', '600', '700']).default('700'),
+    titleTracking: z.number().min(0).max(0.8).default(0),
+    statusTracking: z.number().min(0).max(1).default(0.25),
+  }).default({ family: 'avenir', titleWeight: '600', statusWeight: '700', titleTracking: 0, statusTracking: 0.25 }),
   fontSizes: z.object({ icon: size(22), timer: size(12), title: size(16), activity: size(12) }),
   colors: z.object({
     active: color, question: color, permission: color, attention: color,
@@ -15,6 +23,8 @@ export const appearanceSchema = z.object({
 export type Appearance = z.infer<typeof appearanceSchema>;
 
 export const defaults: Appearance = {
+  paginationPosition: 'right',
+  typography: { family: 'avenir', titleWeight: '600', statusWeight: '700', titleTracking: 0, statusTracking: 0.25 },
   fontSizes: { icon: 18, timer: 9, title: 12, activity: 8.4 },
   colors: {
     active: '#ff6570', question: '#ffe45c', permission: '#ba8dff',
